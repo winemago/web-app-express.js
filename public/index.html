@@ -21,13 +21,21 @@
 </head>
 <body>
     <b><h1>My current position</h1></b>
-    <button id="geolocate">geolocate me</button>
+
+    <form action="">
+        <label for="fname">Your name:</label>
+        <input type="text" name="name" id="fname">
+        <button id="geolocate" type="button" >geolocate me</button>
+    </form>
+
     <p>
         latitude: <span id="lat"></span><br>
         longitude: <span id="lon"></span>
     </p>
     <div id="mapid" ></div>
- 
+
+    
+    <button id="get">get</button>
     
     <script>
         document.getElementById('geolocate').addEventListener('click', event => {
@@ -41,9 +49,11 @@
                     let lon = pos.coords.longitude;
                     document.getElementById('lat').innerText = lat;
                     document.getElementById('lon').innerText = lon;
-                    drawmap(lat,lon);
                     
-                    const data = {lat ,lon,};                            //create an object.
+                    const username = document.getElementById('fname').value;
+
+                    
+                    const data = {lat ,lon,username};                            //create an object.
                     const options = {                                   
                         method: 'POST',                                 //there r differents atributes but for basic we need this ones        
                         headers:{'Content-type':'application/json'},    //I specify that I'd send a json.
@@ -51,11 +61,14 @@
                     };
                     const response = await fetch('/api',options);            //in order to send a POST I need a second argument in fetch, a JSON.
                     const dat = await response.json();
-                    console.log(dat);          
+                    console.log(dat);  
+
+
+                    drawmap(lat,lon,username);        
                 });
                 
             }
-            function drawmap(lat,long){
+            function drawmap(lat,long,username){
                 //init map
                 const mymap = L.map('mapid').setView([0,0], 2);
 
@@ -64,15 +77,26 @@
                 const tiles = L.tileLayer(tileUrl, { attribution });
                 tiles.addTo(mymap);
 
-                let circle = L.circle([lat, long], {
+                const circle = L.circle([lat, long], {
                     color: 'red',
                     fillColor: '#f03',
                     fillOpacity: 0.5,
                     radius: 500
                 }).addTo(mymap);
-                circle.bindPopup("You are here!").openPopup();
+                circle.bindPopup(`Hi ${username} You are here!`).openPopup();
             }
         });    
-    </script>
+
+        async function test_GET(){
+            const response = await fetch('/api');            
+            const dat = await response.json();
+            console.log(dat); 
+        }
+
+        document.getElementById('get').addEventListener('click', event =>{
+            test_GET();
+        })
+        
+    </script>       
 </body>
 </html>
