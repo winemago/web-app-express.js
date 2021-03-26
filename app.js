@@ -1,5 +1,4 @@
 const Datastore = require('nedb');
-const { request } = require('express');
 const express = require('express');
 const app = express(); 
 
@@ -10,15 +9,15 @@ app.use(express.json());
 const database = new Datastore({ filename:'database.db' , autoload: true });
 
 app.post('/api', (request,response)=>{
-    console.log('request of Post: ');
+    console.log('POST request: ');
 
-    const data=request.body
+    const data=request.body;
     data.timestamp = Date.now();
     console.log(data);
 
-    database.insert(data);             //every time I receive a POST I send all my data to an array.
+    database.insert(data);             
 
-    //response.end();                           allways complete a request.
+    //response.end();                           allways complete a request..
     response.json({
         status: 'success',
         method: 'POST',
@@ -26,6 +25,9 @@ app.post('/api', (request,response)=>{
     });
 });
 
-app.get('/api', (req, res) => {
-    console.log('get in data!');
+app.get('/api', (request, response) => {
+    console.log('GET request!');
+    const data = request.body;
+    
+    response.json({received: true,data: data});
   });
