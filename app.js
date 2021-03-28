@@ -6,7 +6,9 @@ app.listen(3000, ()=> console.log('listening at 3000'));
 app.use(express.static('public'));
 app.use(express.json());
 
+
 const database = new Datastore({ filename:'database.db' , autoload: true });
+
 
 app.post('/api', (request,response)=>{
     console.log('POST request: ');
@@ -16,7 +18,6 @@ app.post('/api', (request,response)=>{
     console.log(data);
 
     database.insert(data);             
-
     //response.end();                           allways complete a request..
     response.json({
         status: 'success',
@@ -27,7 +28,13 @@ app.post('/api', (request,response)=>{
 
 app.get('/api', (request, response) => {
     console.log('GET request!');
-    const data = request.body;
     
-    response.json({received: true,data: data});
+    //database.find({username: 'juan'},(err,data)                           we can filter with different operators or dot notation.
+    database.find({},(err,data) => {                                      //if we dont put anythinng inside we find all documents.
+        if(err){
+            response.end();
+            return;
+        }                                      
+       response.json({received: true,data: data}); 
+    });
   });
