@@ -1,7 +1,7 @@
 function setup(){
     noCanvas();
     const video = createCapture(VIDEO);
-    video.size(200,200);
+    video.size(300,300);
 
     const mymap = L.map('mapid').setView([0,0], 2);
 
@@ -18,6 +18,7 @@ function setup(){
         } else {
             status.textContent = 'Locating…';
             navigator.geolocation.getCurrentPosition(async (pos) => {
+            try{
                 console.log(pos.coords);
                 let lat = pos.coords.latitude;
                 let lon = pos.coords.longitude;
@@ -47,24 +48,32 @@ function setup(){
                     popupAnchor:  [2, -15]
                   });
                 const marker = L.marker([lat, lon], { icon: perfil }).addTo(mymap);
+            }catch(error){
+                console.error(error);
+            }
+            
             });
         }
     }); 
     
     async function world(){
-        const response = await fetch('/api');
-        const data = await response.json();
-        console.log(data);
-        
-        data.data.forEach(item => {
-            const perfil = L.icon({
-                iconUrl: item.image64,
-                iconSize: [60, 42],
-                iconAnchor: [25, 16],
-                popupAnchor:  [2, -15]
-              });
-            const marker = L.marker([item.lat, item.lon], { icon: perfil }).addTo(mymap);
-        });   
+        try{
+            const response = await fetch('/api');
+            const data = await response.json();
+            console.log(data);
+            
+            data.data.forEach(item => {
+                const perfil = L.icon({
+                    iconUrl: item.image64,
+                    iconSize: [60, 42],
+                    iconAnchor: [25, 16],
+                    popupAnchor:  [2, -15]
+                });
+                const marker = L.marker([item.lat, item.lon], { icon: perfil }).addTo(mymap);
+            });  
+        }catch(error){
+            console.error(error);
+        }
     }
 } 
 

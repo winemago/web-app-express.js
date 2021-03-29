@@ -1,12 +1,17 @@
 async function GETdata(){
-    const response = await fetch('/api');            
-    const dat = await response.json();
-    console.log(dat); 
+    try{
+        const response = await fetch('/api');            
+        const dat = await response.json();
+        console.log(dat); 
 
-    dat.data.forEach(element => {
-        console.log(element);
-        createDivInfo(element);
-    }); 
+        dat.data.forEach(element => {
+            console.log(element);
+            createDivInfo(element);
+        }); 
+    }
+    catch(error){
+        console.error(error);
+    }
 }
 
 document.getElementById('getall').addEventListener('click', event =>{
@@ -14,16 +19,20 @@ document.getElementById('getall').addEventListener('click', event =>{
 })
 
 async function GETbyname(){
-    const response = await fetch('/api');            
-    const data = await response.json();
-    console.log(data);
-    
-    const name = document.getElementById('sname').value;
-    data.data.forEach(element => {
-        if(name === element.username){
-            createDivInfo(element);
-        }
-    });
+    try{
+        const response = await fetch('/api');            
+        const data = await response.json();
+        console.log(data);
+        
+        const name = document.getElementById('sname').value;
+        data.data.forEach(element => {
+            if(name === element.username){
+                createDivInfo(element);
+            }
+        });
+    }catch(error){
+        console.error(error);
+    }
 }
 document.getElementById('getbyname').addEventListener('click', event =>{
     GETbyname();
