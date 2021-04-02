@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <style>
+        #mapid{
+            height: 480px;
+            width: 700px;
+            border-radius: 1rem;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <a href="/index.html">Selfimap</a>
+        </div>
+        <div class="buttons-container">
+            <button class="logout">Log out</button>
+        </div>
+    </header>
+
+    <div class="worldmap">
+        <div id="mapid"></div>
+    </div>
+    
+    <p>
+        latitude: <span id="lat"></span><br>
+        longitude: <span id="lon"></span>
+    </p>
+    <div>
+        <input type="button" onclick="location.href='/logs/users.html';" value="users logs" />
+    </div>
+
+
+    <script src="main.js"></script>
+    <form >
+        <label for="fname">Your name:</label>
+        <input type="text" name="name" id="fname">
+        <button id="geolocate" type="button" >geolocate me</button>
+    </form>      
+</body>
+</html>

@@ -4,44 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <style>
-        #mapid{
-            height: 480px;
-            width: 700px;
-            border-radius: 1rem;
-        }
-    </style>
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Selfimap</title>
 </head>
 <body>
-    <b><h1>My current position</h1></b>
+    <header class="header">
+            <div class="logo-container">
+                <a href="/main.html">Selfimap</a>
+            </div>
+            <div class="buttons-container">
+                <button class="login">Log in</button>
+                <button class="signup">Sign up</button>
+            </div>
+    </header>
 
-    <form action="">
-        <label for="fname">Your name:</label>
-        <input type="text" name="name" id="fname">
-        <button id="geolocate" type="button" >geolocate me</button>
-    </form>
+    <main class="main">
+        <div class="wel-description">
+            <h1>Selfimap</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra lacus in porttitor euismod. Sed vel lacinia massa. Aenean quam nibh, laoreet in massa porta, bibendum fringilla nisi. Suspendisse nisl risus, luctus non nisi in, placerat commodo lorem. Nullam condimentum sollicitudin nibh nec pulvinar.</p>
+            <div class="icons">
+                <a href=""><img src="images/github.svg" alt="github"></a>   
+                <a href=""><img src="/images/linkedin.svg" alt="linkedin"></a>
+            </div>     
+        </div>
 
-    <p>
-        latitude: <span id="lat"></span><br>
-        longitude: <span id="lon"></span>
-    </p>
-    <div id="mapid" ></div>
-
-    <div>
-        <input type="button" onclick="location.href='/logs/users.html';" value="users logs" />
-    </div>
+        <div class="wel-image">
+            <img src="/images/undraw_moment_to_remember_02gj.svg" alt="selfie">
+        </div>
+         <img  class="sep" src="/images/wave.svg" alt="wave">
+    </main>
     
-
-
-    <script src="main.js"></script>      
 </body>
 </html>

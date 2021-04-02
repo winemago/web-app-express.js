@@ -1,7 +1,8 @@
 function setup(){
     noCanvas();
     const video = createCapture(VIDEO);
-    video.size(300,300);
+    video.size(400,600);
+    video.position(1350, 80);
 
     const mymap = L.map('mapid').setView([0,0], 2);
 
@@ -29,7 +30,6 @@ function setup(){
                 const image64 = video.canvas.toDataURL();
                 
                 const username = document.getElementById('fname').value;
-
                 
                 const data = {lat,lon,username,image64};                            //create an object.
                 const options = {                                   
@@ -37,6 +37,7 @@ function setup(){
                     headers:{'Content-type':'application/json'},    //I specify that I'd send a json.
                     body: JSON.stringify(data),                     //body: where I packaging all my data, in this case I wanna send it as json string,
                 };
+
                 const response = await fetch('/api',options);            //in order to send a POST I need a second argument in fetch, a JSON.
                 const dat = await response.json();
                 console.log(dat);  

@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+    color: rgb(90, 183, 206);
+}
+a{
+    text-decoration: none;
+    color: rgb(90, 183, 206);
+}
+
+
+.header{
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+}
+.logo-container{
+    position: relative;
+    left: 10%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+.buttons-container{
+    position: relative;
+    right: 10%;
+}
+.logout{
+    position: relative;
+    border-radius: 20px;
+    width: 90px;
+    height: 40px;
+    margin: 5px;
+    background-color: rgb(90, 183, 206);
+    color:cornsilk;
+    border-style: none;
+    right: 10%;
+    cursor: pointer;
+}
+
+.worldmap #mapid{
+    width: 65%;
+    height: 800px;
+}
