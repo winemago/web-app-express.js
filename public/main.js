@@ -1,7 +1,7 @@
 function setup(){
     noCanvas();
     const video = createCapture(VIDEO);
-    video.size(400,600);
+    video.size(300,300);
     video.position(1350, 80);
 
     const mymap = L.map('mapid').setView([0,0], 2);

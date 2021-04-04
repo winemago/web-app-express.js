@@ -13,33 +13,34 @@
     <div class="container">
         <div class="sign">
 
-            <form action="">
+            <form action="/signup" method="POST">
                 <div class="titleSign">
                     <h1>SIGN UP</h1>
                 </div>
-                <label for="name">Username</label>
-                <input type="text" value="">
-                <label for="">Email</label>
-                <input type="text">
-                <label for="">Password</label>
-                <input type="password">
-                <button type="submit">Sign up</button>
+                <label for="NameS">Username</label>
+                <input type="text" id="NameS" name="NameS" value="" required>
+                <label for="EmailS">Email </label>
+                <input type="text" id="EmailS" name="EmailS" required>
+                <label for="PasswordS">Password</label>
+                <input type="password" id="PasswordS" name="PasswordS" required>
+                <button type="submit" id="sign">Sign up</button>
             </form>
         </div>
 
         <div class="log>">
 
-            <form action="">
+            <form action="/login" method="POST">
                 <div class="titleLog">
                     <h1>LOG IN</h1>
                 </div>
-                <label for="name">Username</label>
-                <input type="text" value="">
-                <label for="">Password</label>
-                <input type="password">
+                <label for="nameL">Username</label>
+                <input type="text" id="nameL" name="NameL" value="" required>
+                <label for="PasswordL">Password</label>
+                <input type="password" id="PasswordL" name="PasswordL" required>
                 <button type="submit">Log in</button>
             </form>
         </div>
     </div>
+
 </body>
 </html>
