@@ -45,7 +45,7 @@ a{
     color:cornsilk;
     border-style: none;
     right: 10%;
-    cursor: pointer;
+    cursor: pointer;outline: none;
 }
 
 .worldmap #mapid{

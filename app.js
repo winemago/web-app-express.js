@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const { response } = require('express');
 
+
 app.listen(3000, ()=> console.log('listening at 3000'));
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
@@ -47,15 +48,17 @@ app.get('/api', (request, response) => {
 
 app.post('/login',async (req,res) =>{
     try{
-        const hashedpass = await bcrypt.hash(req.body.PasswordL,10);
         const data = {          
             name: req.body.NameL,
-            password: hashedpass,
+            password: req.body.PasswordL,
         };
-        logs.find({ name: data.name }, function (err, docs) {
+        logs.find({ name: data.name }, async (err, docs) =>{
             // If no document is found, docs is equal to []
+            
             if(docs.length > 0 ){
-                if(docs.password === data.password){
+                console.log(data.password);
+                console.log(docs[0].password);
+                if(await bcrypt.compare(data.password,docs[0].password)){
                     res.redirect('/main.html');
                 }else{
                     res.json('wrong password.');
