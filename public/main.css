@@ -49,6 +49,8 @@ a{
 }
 
 .worldmap #mapid{
+    position: relative;
+    left: 4%;
     width: 65%;
     height: 800px;
 }

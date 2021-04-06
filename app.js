@@ -56,8 +56,6 @@ app.post('/login',async (req,res) =>{
             // If no document is found, docs is equal to []
             
             if(docs.length > 0 ){
-                console.log(data.password);
-                console.log(docs[0].password);
                 if(await bcrypt.compare(data.password,docs[0].password)){
                     res.redirect('/main.html');
                 }else{
@@ -69,13 +67,11 @@ app.post('/login',async (req,res) =>{
             console.log(docs);
             
           });
-
-        
-        
     }catch(error){
         console.error(error);      
     }
 });
+
 app.post('/signup',async (req,res) =>{
     try{
         const hashedpass = await bcrypt.hash(req.body.PasswordS,10);
@@ -85,9 +81,20 @@ app.post('/signup',async (req,res) =>{
             password: hashedpass,
         };
         logs.insert(data);
-        res.redirect('/log-sign.html');
+        res.redirect('/sign-log/log.html');
         
     }catch(error){
         console.error(error);      
     }
+});
+
+app.get('/ValUsername/:name',(req,res) => {
+    console.log(req.params);
+    logs.find({ name:`${req.params}` }, (err, docs) =>{
+        if(docs.length > 0){
+            res.json({valid: false});
+        }else{
+            res.json({valid: true});
+        }
+    });
 });

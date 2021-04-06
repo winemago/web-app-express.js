@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\signlog\log-sign.css">
+    <title>Sign</title>
+</head>
+<body>
+    <a href="\index.html"><img src="\images\arrowleft.png" alt="leftarrow" width="70px"></a>
+    <div class="container">
+        
+        <div class="sign">
+
+            <form action="/signup" method="POST">
+                <div class="titleSign">
+                    <h1>SIGN UP</h1>
+                </div>
+                <label for="NameS">Username</label>
+                <input type="text" id="NameS" name="NameS" value="" required >
+                <label for="EmailS">Email </label>
+                <input type="email" id="EmailS" name="EmailS" required>
+                <label for="PasswordS">Password</label>
+                <input type="password" id="PasswordS" name="PasswordS" required >
+                <button type="submit" id="sign">Sign up</button><br>
+                <p>Already a member?</p>
+                <a href="\signlog\log.html">Log in</a>
+            </form>
+        </div>
+
+    </div>
+    <script>   
+
+
+    const Username = document.getElementById('NameS').value;
+
+    async function  isValid(Username){
+        
+        const response = await fetch(`ValUsername/${Username}`);
+        const valide = await  response.json;
+
+        return valide.valid;
+    }
+
+        
+
+    </script>
+</body>
+</html>

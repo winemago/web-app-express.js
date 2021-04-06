@@ -12,6 +12,7 @@ function setup(){
     tiles.addTo(mymap);
 
     world();
+    setInterval(world,10000);
 
     document.getElementById('geolocate').addEventListener('click', event => {
         if(!navigator.geolocation) {

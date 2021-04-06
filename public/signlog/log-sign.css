@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+h1{
+    color: rgb(90, 183, 206);
+}
+
+#bigcircle{
+    position: absolute;
+    z-index: 1;
+    left: -20%;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+.titleLog{
+     margin: 1.5rem;
+}
+.titleSign{
+    margin: 1.5rem;
+}
+form {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+}
+label{
+    margin-top: 5px;
+    color: rgb(56, 58, 58);
+}
+input{
+    padding: 9px;
+    padding-inline: 40px;
+    border: 1px solid;
+    border-radius: 1rem;
+    margin: 7px;
+    outline: none;
+    color: rgb(56, 58, 58);
+}
+button{
+    margin: 15px;
+    padding: 10px;
+    padding-inline: 30px;
+    border-radius: 1rem;
+    background-color: rgb(90, 183, 206);
+    color:cornsilk;
+    border-style: none;
+    cursor: pointer;
+    outline: none;
+}
+  
