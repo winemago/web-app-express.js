@@ -5,8 +5,9 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const { response } = require('express');
 
+const port = process.env.PORT || 3000;
 
-app.listen(3000, ()=> console.log('listening at 3000'));
+app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
