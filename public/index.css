@@ -92,9 +92,9 @@ a,h1{
 }
 
 .sep{
-    position: absolute;
+    position:fixed;
     z-index: -1;
-    bottom: 0px;
+    bottom:0px;
     width: 100%;
 }
 
@@ -116,7 +116,5 @@ a,h1{
         top: 100px;
 
     }
-    .sep{
-        bottom: -40%;
-    }
+    
 }

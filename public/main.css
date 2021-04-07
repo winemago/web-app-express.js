@@ -8,7 +8,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-h1{
+h1, h2, h3{
     color: rgb(90, 183, 206);
 }
 a{
@@ -45,12 +45,111 @@ a{
     color:cornsilk;
     border-style: none;
     right: 10%;
-    cursor: pointer;outline: none;
+    cursor: pointer;
+    outline: none;
 }
 
 .worldmap #mapid{
     position: relative;
-    left: 4%;
-    width: 65%;
+    left: 1rem;
+    width: 70%;
     height: 800px;
 }
+
+.location{
+    position: relative;
+    left:1rem;
+}
+
+video{
+    position: absolute;
+    top: 100px;
+    left: 75%;
+}
+
+.takeselfie{
+    position: absolute;
+    top: 400px;
+    left: 82%;
+}
+#geolocate{
+    
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 2px solid rgb(39, 38, 38);
+    background-color: rgb(255, 53, 53);
+    cursor: pointer;
+    outline: none;
+}
+
+@media only screen and (max-width: 1440px){
+   video{
+    left: 73%
+   }
+}
+
+@media only screen and (max-width: 1024px){
+    video{
+     left: 68%
+    }
+    .takeselfie{
+        left: 80%;
+    }
+ }
+ @media only screen and (max-width: 1146px){
+    video{
+     left: 71%
+    }
+    .worldmap #mapid{
+        width: 60%;
+    }
+ }
+ @media only screen and (max-width: 1050px){
+    video{
+     left: 66%
+    }
+ }
+ @media only screen and (max-width: 768px){
+    video{
+     left: 60%
+    }
+    .takeselfie{
+        left: 76%;
+    }
+    .worldmap #mapid{
+        width: 56%;
+        height:700px;
+    }
+ }
+ @media only screen and (max-width: 450px){
+    video{
+        top: 740px;
+        left: 14%;
+    }
+    .takeselfie{
+        top: 1020px;
+        left: 43%;
+    }
+    .worldmap #mapid{
+        left: 0.5rem;
+        height:600px;
+        width: 96%;
+    }
+ }
+  @media only screen and (max-width: 375px){
+    video{
+     left: 10%;
+    }
+ }
+ @media only screen and (max-width: 350px){
+    video{
+     left: 8%;
+    }
+ }
+ @media only screen and (max-width: 350px){
+    video{
+     left: 3%;
+    }
+ }
+ 

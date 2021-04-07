@@ -2,7 +2,6 @@ function setup(){
     noCanvas();
     const video = createCapture(VIDEO);
     video.size(300,300);
-    video.position(1350, 80);
 
     const mymap = L.map('mapid').setView([0,0], 2);
 
@@ -12,7 +11,7 @@ function setup(){
     tiles.addTo(mymap);
 
     world();
-    setInterval(world,10000);
+    //setInterval(world,10000);
 
     document.getElementById('geolocate').addEventListener('click', event => {
         if(!navigator.geolocation) {
@@ -30,9 +29,8 @@ function setup(){
                 video.loadPixels();
                 const image64 = video.canvas.toDataURL();
                 
-                const username = document.getElementById('fname').value;
                 
-                const data = {lat,lon,username,image64};                            //create an object.
+                const data = {lat,lon,image64};                            //create an object.
                 const options = {                                   
                     method: 'POST',                                 //there r differents atributes but for basic we need this ones        
                     headers:{'Content-type':'application/json'},    //I specify that I'd send a json.

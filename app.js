@@ -59,10 +59,10 @@ app.post('/login',async (req,res) =>{
                 if(await bcrypt.compare(data.password,docs[0].password)){
                     res.redirect('/main.html');
                 }else{
-                    res.json('wrong password.');
+                    res.send('wrong password');
                 }
             }else{
-                res.json('wrong username');
+                res.send('<p>wrong username</p>');
             }
             console.log(docs);
             

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/nolan/50/waypoint-map.png" type="image/icon type"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="\signlog\log-sign.css">
@@ -19,7 +20,7 @@
                 <div class="titleSign">
                     <h1>SIGN UP</h1>
                 </div>
-                <label for="NameS">Username</label>
+                <label for="NameS">Username</label><span id="nameflag"></span>
                 <input type="text" id="NameS" name="NameS" value="" required >
                 <label for="EmailS">Email </label>
                 <input type="email" id="EmailS" name="EmailS" required>
@@ -32,6 +33,7 @@
         </div>
 
     </div>
+    <img class="wave" src="\images\wavesign.svg" alt="wave">
     <script>   
 
 
@@ -45,7 +47,16 @@
         return valide.valid;
     }
 
-        
+
+
+    document.getElementById('sign').addEventListener('click',event =>{
+        const flag = isValid(Username);
+        if(flag === true){
+            document.getElementById('nameflag').innerHTML ='Name already in use';
+        }
+    })
+      
+
 
     </script>
 </body>

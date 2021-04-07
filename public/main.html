@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/nolan/50/waypoint-map.png" type="image/icon type"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
@@ -22,7 +23,7 @@
             border-radius: 1rem;
         }
     </style>
-    <title>Document</title>
+    <title>Selfimap</title>
 </head>
 <body>
 
@@ -38,21 +39,26 @@
     <div class="worldmap">
         <div id="mapid"></div>
     </div>
-    
-    <p>
-        latitude: <span id="lat"></span><br>
-        longitude: <span id="lon"></span>
-    </p>
+
+    <div class="location">
+        <h3>Your location:</h3>
+        <p>
+            latitude: <span id="lat"></span><br>
+            longitude: <span id="lon"></span>
+        </p>
+    </div>
+
     <div>
         <input type="button" onclick="location.href='/logs/users.html';" value="users logs" />
     </div>
 
-
+    <div class="takeselfie">
+        <button id="geolocate" type="button" ></button>
+    </div>
+    
     <script src="main.js"></script>
-    <form >
-        <label for="fname">Your name:</label>
-        <input type="text" name="name" id="fname">
-        <button id="geolocate" type="button" >geolocate me</button>
-    </form>      
+
+    
+   
 </body>
 </html>
