@@ -82,7 +82,7 @@ app.post('/signup',async (req,res) =>{
             password: hashedpass,
         };
         logs.insert(data);
-        res.redirect('/sign-log/log.html');
+        res.redirect('\signlog\log.html');
         
     }catch(error){
         console.error(error);      
