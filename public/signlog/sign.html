@@ -34,30 +34,6 @@
 
     </div>
     <img class="wave" src="\images\wavesign.svg" alt="wave">
-    <script>   
 
-
-    const Username = document.getElementById('NameS').value;
-
-    async function  isValid(Username){
-        
-        const response = await fetch(`ValUsername/${Username}`);
-        const valide = await  response.json;
-
-        return valide.valid;
-    }
-
-
-
-    document.getElementById('sign').addEventListener('click',event =>{
-        const flag = isValid(Username);
-        if(flag === true){
-            document.getElementById('nameflag').innerHTML ='Name already in use';
-        }
-    })
-      
-
-
-    </script>
 </body>
 </html>
