@@ -124,11 +124,11 @@ video{
  }
  @media only screen and (max-width: 450px){
     video{
-        top: 740px;
+        top: 770px;
         left: 14%;
     }
     .takeselfie{
-        top: 1020px;
+        top: 1090px;
         left: 43%;
     }
     .worldmap #mapid{
