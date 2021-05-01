@@ -109,13 +109,13 @@ a,h1{
     }
     .wel-description{
         position: relative;
-        bottom: -320px;
+        bottom: -200px;
         width: 70%;
     }
     .wel-image{
         position: absolute;
         top: 100px;
 
-    }
-    
+    }    
 }
+
